@@ -1,0 +1,42 @@
+<div class="container-fluid" style="background-image: url('https://img.freepik.com/free-vector/news-broadcast-background-with-blue-planet-earth_1017-36646.jpg?w=1380&t=st=1681455757~exp=1681456357~hmac=00fab90e6a5509e6ce5cd3af91d96c2ed78fafdb892417d07b526239b7ad1767'); background-size: cover;">
+ 
+  <div class="container my-5" >
+    <div class="row justify-content-left">
+      <div class="col-md-6">
+        <div class="card p-4" style="background-color: #66AACC;">
+
+          <div class="card-header text-center" style="background-color: #ADD8E6;">
+            <h2 class="text-primary" style="color: #CEACE6;">Sign up</h2>
+          </div>
+          
+          <div class="card-body" style="background-color: #ADD8E6;">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+              <%= f.error_notification %>
+              <div class="form-group">
+                <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email", class: "form-control" }%>
+              </div>
+              <div class="form-group">
+                <%= f.input :password,
+                            required: true,
+                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password", class: "form-control" } %>
+              </div>
+              <div class="form-group">
+                <%= f.input :password_confirmation,
+                            required: true,
+                            input_html: { autocomplete: "new-password", class: "form-control" } %>
+              </div>
+              <div class="form-group" >
+                <%= f.button :submit, "Sign up", class: "btn btn-success btn-block" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

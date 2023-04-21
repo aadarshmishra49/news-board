@@ -1,0 +1,23 @@
+<div class="col-xl-4 col-md-6 col-sm-8 col-10 mx-auto bg-light rounded p-2 my-4">
+  <h1 class="text-center">Post New News</h1>
+  <%= form_with(model: @message, class: "p-2") do |form| %>
+    <div class="form-group col-12">
+    <strong><%= form.label :title, class: "text-dark" %></strong>
+    <%= form.text_field :title, class: "form-control w-100" %>
+    </div>
+    
+    <div class="form-group col-12">
+      <%= form.label :description, class:"text-dark" %>
+      <%= form.text_area :description, class: "form-control", rows: 7 %>
+    </div>
+    
+    <div class="form-group col-12">
+      <%= form.label :category, class:"text-dark" %>
+      <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id] }), {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-12 text-center">
+      <%= form.submit :"Publish News", class: "btn btn-primary btn-sm" %>
+    </div>
+  <% end %>
+</div>

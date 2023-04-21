@@ -1,0 +1,117 @@
+
+<div style="text-align:center">
+  <h3><strong> Welcome on my news portal .... </strong></h3>
+</div>      
+
+<div class="container-fluid" >
+  <div class="sidebar">
+  <div class="form-group" style="margin-right: -67px;margin-left: 152px;margin-top: 2rem;">
+  <h3><strong> Search News</strong></h3>
+</div>
+  <%= search_form_for @q, url: :messages do |form| %>
+    <div class="form-group" style="margin-right: -67px;margin-left: 42px;margin-bottom: 1rem;">
+      <%= form.label :title %>
+      <%= form.text_field :title_cont, class: "form-control" %>
+    </div>
+    <div class="form-group" style="margin-right: -67px;margin-left: 42px;margin-bottom: 1rem;">
+
+      <%= form.label :description %>
+      <%= form.text_field :description_cont, class: "form-control" %>
+    </div>
+    <div class="form-group" style="margin-right: -67px;margin-left: 180px;margin-bottom: 1rem;">
+
+      <%= form.submit class: "btn btn-primary btn-lg" %>
+    </div>
+    
+  <% end %> 
+    <div class="form-group" style="margin-right: -67px;margin-left: 132px;margin-bottom: 1rem;">
+          <h3><strong> News Categories</strong></h3>
+    </div>
+      <% @categories.each do |category| %>
+        <div class="card text-white bg-red mb-3" style="max-width: 20rem;margin-right: -67px;margin-left: 62px;margin-bottom: 1rem;">
+        <div class="card-header"><%= link_to category.name, category_path(category.id) %></div>
+        </div>
+     <% end %>
+  
+
+    </div>
+  <div class="content">
+
+      <% @messages.each do |message| %>
+                
+
+        <div class="card text-white bg-secondary mb-3" style="max-width: 50rem;margin:auto;background-color:#7997b1!important">
+        <div class="card-header" style="min-height: 7rem;"><h3><%=message.title %></h3></div>
+        <div class="card-body">
+        <button type="button" class="btn btn-info">
+          <%= link_to "view Message", message_path(message), style: "color:white; text-decoration:none;bg-color:yellow !important" %>
+        </button>
+         </div>
+      
+        </div>
+      <% end %>
+      <div style="margin:auto;">
+            <%= paginate @messages %>
+      </div>
+
+   </div>
+
+  <div class="sidebar">
+    <div class="form-group" style="margin-right: -67px;margin-left: 132px;margin-bottom: 1rem;">
+      <h3><strong> About App</strong></h3>
+    </div>
+    <div class="form-group" style="margin-right: 5px;margin-left: 7px;margin-bottom: 1rem;">
+
+     <p> A news app is a mobile application that delivers news content to users on their smartphones and tablets. It provides users with access to a wide range of news articles, breaking news alerts, and multimedia content such as videos and images.
+
+      Typically, news apps allow users to customize their news feed by selecting topics of interest, geographic location, or specific news sources. This personalized experience provides users with relevant and engaging content, tailored to their interests.
+
+      Some news apps also use machine learning algorithms to learn from user behavior, such as articles that users click on, and adjust their news feed accordingly. This allows for an even more personalized experience.
+      In terms of content, news apps typically cover a variety of categories, such as politics, sports, entertainment, science and technology, business, and more. Some news apps may also offer local news coverage for specific cities or regions.
+
+      Overall, news apps provide users with a convenient and easily accessible way to stay up-to-date with current events and news stories from around the world.
+
+        </p>  
+
+      <div class="row">
+        <div class="col-md-5">
+          <h5 class="text-uppercase text-dark">About Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Meet the Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="col-md-5">
+          <h5 class="text-uppercase text-dark">Connect</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="https://twitter.com/AADARSHMIS79632" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/aadarshmishra49/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/aadarshmishra49/" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12";style:"margin:auto;">
+          <p class="text-muted";>Copyright &copy; 2023 News App</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+        
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<%= likeable.reactions.count %> likes
+<% if user_signed_in? %>
+    <% reaction=current_user.reactions.find_by(likeable: likeable) %>
+    <% if reaction.nil? %>
+        <form action="/reactions" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+        <input type="hidden" name="reaction[likeable_id]" value="<%= likeable.id %>">
+        <input type="hidden" name="reaction[likeable_type]" value="<%= likeable.class.to_s %>">
+        <input type = "submit" value="Like">
+        </form>
+    <% else %>
+        <form action="<%= reaction_path(reaction) %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+        <input type="hidden" name="_method" value="DELETE">
+        <input type = "submit" value="Unlike">
+        </form>
+    <%end %>
+<% end %>
+

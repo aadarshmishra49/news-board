@@ -1,0 +1,28 @@
+<div class="message">
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h2 class="card-title mb-0"><%= @message.title %></h2>
+    </div>
+    <div class="card-body" style="font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 1.5;">
+      <p class="text-muted mb-0">Posted by <%= @message.author.email %> <%= time_ago_in_words(@message.created_at) %> ago</p>
+      <p><strong>Category:</strong> <%= link_to @message.category.name, @message.category %></p>
+      <p class="fs-5"><%= @message.description %></p>
+      <%= render partial: 'reactions/button', locals: { likeable: @message } %>
+      <h3 >Comments:</h3>
+      <%= render @message.comments %>
+      <h3>Reply to Message</h3>
+      <div class="mb-3">
+        <%= render 'comments/form' %>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <%= link_to "Back", root_path, class: "btn btn-dark btn-equal" %>
+        <% if author_signed_in? %>
+          <% if @message.author_id == current_author.id %>
+          <div style="margin-left:-2100px"> <%= link_to "Edit", edit_message_path(@message), class: "btn btn-info btn-equal me-2" %></div>
+           <div style="margin-left:-630px"> <%= button_to "Delete", message_path(@message), method: :delete, class: "btn btn-danger btn-equal ", data: { confirm: "Are you sure you want to delete this message?" } %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
