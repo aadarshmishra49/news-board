@@ -2,12 +2,13 @@
 <% if user_signed_in? %>
     <% reaction=current_user.reactions.find_by(likeable: likeable) %>
     <% if reaction.nil? %>
-        <form action="/reactions" method="post">
+      <form action="/reactions" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
         <input type="hidden" name="reaction[likeable_id]" value="<%= likeable.id %>">
         <input type="hidden" name="reaction[likeable_type]" value="<%= likeable.class.to_s %>">
-        <input type = "submit" value="Like">
-        </form>
+        <input type="submit" value="Like" style="background-color: #0E49E8; color: white; border: none; padding: 8px 16px; font-size: 16px; border-radius: 4px;">
+      </form>
+    
     <% else %>
         <form action="<%= reaction_path(reaction) %>" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >

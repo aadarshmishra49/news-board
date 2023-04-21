@@ -20,7 +20,7 @@ Doorkeeper.configure do
   # end
 
   grant_flows %w[password]
-
+  
   allow_blank_redirect_uri true
 
   skip_authorization do 

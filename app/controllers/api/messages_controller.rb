@@ -37,7 +37,7 @@ module Api
         end
 
         def create
-            
+            #debugger
             @author = Author.find(doorkeeper_token.resource_owner_id)
             message=@author.messages.new(message_params)
             if message.save
@@ -53,7 +53,7 @@ module Api
         def update
             #debugger
             message = Message.find_by(id: params[:id])
-
+   
             if current_author.is_a? Author
               if message.author_id == doorkeeper_token.resource_owner_id
                 if message.update(message_params)

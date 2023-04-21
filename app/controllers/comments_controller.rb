@@ -37,10 +37,11 @@ class CommentsController < ApplicationController
       end
 
       def find_message
-
+      
         @message=Message.find(params[:message_id])
       end
       def find_comment
+
         @comment=@message.comments.find_by(params[:id])
       end
 
