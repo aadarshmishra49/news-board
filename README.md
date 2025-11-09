@@ -3,18 +3,16 @@
 **News Board** is designed to be a comprehensive platform for news aggregation and management. Below are some key functionalities typically offered by such an application:
 
 ### 1. News Aggregation
-- Automatically fetches or allows manual addition of news articles from various sources (RSS feeds, APIs, or manual entry).
+- Allows manual addition of news articles under different categories like sports, crime, entertainment.
 - Normalizes news content for a consistent reading experience.
 - Optionally supports categorization by topics, tags, or sources.
 
 ### 2. Article Management
 - Admins or authorized users can create, edit, and delete news articles.
-- Articles can be scheduled for publication or set as drafts.
-- Ability to attach images, videos, or external links to news items.
 
 ### 3. User Interaction
-- Registered users can browse, search, and filter news based on categories, dates, or keywords.
-- Features for users to bookmark, like, or share articles.
+- Registered users can browse, search, and filter news based on categories, or keywords.
+- Features for users to like, or share articles.
 - Commenting system for users to discuss news items.
 
 ### 5. Testing and Reliability
